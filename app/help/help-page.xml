@@ -1,0 +1,38 @@
+<Page
+    navigatingTo="onNavigatingTo"  
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar>
+        <!-- 
+        Use the NavigationButton as a side-drawer button in Android
+        because ActionItems are shown on the right side of the ActionBar
+        -->
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+        <!-- 
+        Use the ActionItem for IOS with position set to left. Using the
+        NavigationButton as a side-drawer button in iOS is not possible,
+        because its function is to always navigate back in the application.
+        -->
+        <ActionItem icon="res://menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <ActionItem android.systemIcon="ic_menu_home" 
+           android.position ="right"
+            tap="onHomeButtonTap"
+            ios.position="left">
+
+        </ActionItem>
+        <Label text="Help"></Label>
+
+    </ActionBar>
+
+    <GridLayout class="page__content" backgroundColor="{{color}}" rows="auto,auto,auto, auto ">
+         <Label text="Author: Blaise Mahoro" text-align="center" textWrap="true" fontSize="18" row ="0"></Label>
+        <Label text="Purpose: in fulfillment of requirements for CMSC 4233/5233 Spring 2020 assignment 3" text-align="center" textWrap="true" fontSize="18" row="2"></Label>
+
+        <!-- <Label class="page__content-placeholder" text=""></Label> -->
+
+    </GridLayout>
+</Page>
