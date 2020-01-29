@@ -1,10 +1,13 @@
 
 const app = require("tns-core-modules/application");
-const colors = ["black", "blue", "green", "gray", "lightGray"];
+const colors = ["black", "lightblue", "green", "gray", "lightGray"];
 const backg_color = colors[1];
 const SettingsViewModel = require("./settings-view-model");
 const gestures = require("tns-core-modules/ui/gestures");
 const frame = require("tns-core-modules/ui/frame");
+const getViewById = require("tns-core-modules/ui/core/view").getViewById;
+const fs = require("tns-core-modules/file-system");
+
 let color = "";
 
 //module.exports = SettingsViewModel;
@@ -12,7 +15,7 @@ function onNavigatingTo(args) {
     const page = args.object;
     color = page.navigationContext.bgColor;
 
-    console.log(color);
+
     //console.log(color);
     page.bindingContext = new SettingsViewModel(color);
     page.on(gestures.GestureTypes.swipe, (args) => {
@@ -41,14 +44,12 @@ function onHomeButtonTap(args) {
         context:{ bgColor:color } });
 }
 function onListPickerLoaded(args) {
-    console.log(args);
+    //console.log(args);
 }
-const getViewById = require("tns-core-modules/ui/core/view").getViewById;
-const fs = require("tns-core-modules/file-system");
 
 function onSaveTap(args) {
 
-    //const picker = getElementsByTagName("ListPicker");
+    //gets the selected choice and saves it in the inf.txt file
     const page = frame.topmost().currentPage;
     const listPicker = getViewById(page, "picker1");
     color = colors[listPicker.selectedIndex];

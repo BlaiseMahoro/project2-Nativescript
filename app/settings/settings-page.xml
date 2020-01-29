@@ -29,7 +29,7 @@
     </ActionBar>
     <GridLayout class="page__content" backgroundColor ="{{color}}" rows="auto,auto, auto, auto">
        <Label  text="Pick a background Color:" row="0"></Label>
-        <ListPicker id="picker1" items="{{colors}}" selectedIndex="" row="1" loaded="onListPickerLoaded" /> 
+        <ListPicker id="picker1" items="{{colors}}" selectedIndex="{{sel_index}}" row="1" loaded="onListPickerLoaded" /> 
         <button text="Save" color="black" backgroundColor="yellow" row="3" tap="onSaveTap"></button>
     </GridLayout>
 

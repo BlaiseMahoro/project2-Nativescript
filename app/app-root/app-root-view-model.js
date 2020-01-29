@@ -4,7 +4,7 @@ const SelectedPageService = require("../shared/selected-page-service");
 
 function AppRootViewModel() {
     const viewModel = observableModule.fromObject({
-        bgColor:"black"
+
     });
 
     SelectedPageService.getInstance().selectedPage$
